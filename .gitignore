@@ -1,6 +1,9 @@
 # Maven
 target/
 
+# Maven shade plugin
+dependency-reduced-pom.xml
+
 # IDEA
 .idea/
 *.iml
@@ -25,10 +28,6 @@ target/
 .env
 *.local
 *.secret
-
-# Flink runtime
-checkpoint/
-savepoint/
 
 # OS
 .DS_Store
