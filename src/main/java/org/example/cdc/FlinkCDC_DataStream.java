@@ -10,21 +10,18 @@ import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.table.api.Table;
-import org.apache.flink.table.api.TableResult;
-import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
 import java.time.Duration;
 
-public class FlinkCDC {
+/**
+ * Flink CDC DataStream 风格
+ */
+public class FlinkCDC_DataStream {
     public static void main(String[] args) throws Exception {
 
         //1.创建流处理环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
-
-        // 创建表处理环境
-//        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
 
         /**
          * 2.开启检查点，Flink-CDC 将读取 binlog 的位置信息以状态的方式保存在CK,如果想要做到断点续传,需要从Checkpoint或者Savepoint启动程序
@@ -65,25 +62,6 @@ public class FlinkCDC {
                 .deserializer(new JsonDebeziumDeserializationSchema())
                 .startupOptions(StartupOptions.initial())
                 .build();
-
-        // SQL 风格
-//        tableEnv.executeSql("create table t1(\n" +
-//                "id string,\n" +
-//                "name string,\n" +
-//                "PRIMARY KEY(id) NOT ENFORCED\n" +
-//                ")\n" +
-//                "with(\n" +
-//                "'connector'='mysql-cdc',\n" +
-//                "'hostname'='hadoop1',\n" +
-//                "'port'='3306',\n" +
-//                "'username'='root',\n" +
-//                "'password'='TMcode@0204',\n" +
-//                "'database-name'='test',\n" +
-//                "'table-name'='t1'\n" +
-//                ");");
-//
-//        Table table = tableEnv.sqlQuery("select * from t1");
-//        table.execute().print();
 
         /**
          * 4. 使用CDC Source从MySQL读取数据
