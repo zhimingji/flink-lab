@@ -9,9 +9,13 @@
 
   <properties>
     <flink.version>1.18.1</flink.version>
+    <flink-cdc.version>3.2.1</flink-cdc.version>
   </properties>
 
   <dependencies>
+    <!-- Flink Core -->
+    <!-- [Flink Built-in] -->
+    <!-- Flink DataStream API: Provides the core Java API for building and executing streaming data processing jobs. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-streaming-java</artifactId>
@@ -19,6 +23,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink Client: Provides the client APIs required to submit, configure, and execute Flink jobs. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-clients</artifactId>
@@ -26,6 +32,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink Runtime Web UI: Provides the embedded Web UI for monitoring Flink jobs in local development. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-runtime-web</artifactId>
@@ -33,6 +41,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink File Connector: Provides file system connectors for reading data from and writing data to files. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-files</artifactId>
@@ -40,6 +50,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Official Connector] -->
+    <!-- Flink Kafka Connector: Provides source and sink connectors for integrating Flink with Apache Kafka. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-kafka</artifactId>
@@ -47,6 +59,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Official Connector] -->
+    <!-- Flink DataGen Connector: Provides built-in data generators for producing synthetic test and development data. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-datagen</artifactId>
@@ -54,18 +68,24 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Third-Party] -->
+    <!-- MySQL JDBC Driver: Provides JDBC connectivity between the application and MySQL databases. -->
     <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
       <version>8.0.33</version>
     </dependency>
 
+    <!-- [Flink Official Connector] -->
+    <!-- Flink JDBC Connector: Provides JDBC-based source and sink connectors for integrating Flink with relational databases. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-jdbc</artifactId>
       <version>3.1.2-1.18</version>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink RocksDB State Backend: Provides RocksDB-based state storage for large and persistent Flink state. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-statebackend-rocksdb</artifactId>
@@ -73,6 +93,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Third-Party] -->
+    <!-- Hadoop Client: Provides Hadoop client libraries for interacting with HDFS and other Hadoop ecosystem services. -->
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
@@ -80,6 +102,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink State Changelog: Provides incremental state change logging to improve checkpoint performance and scalability. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-statebackend-changelog</artifactId>
@@ -87,6 +111,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink Table API Java Bridge: Provides Java language support for developing Flink Table API and SQL applications. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-table-api-java-bridge</artifactId>
@@ -94,6 +120,8 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink Table Planner Loader: Provides the runtime components required to execute Flink Table API and SQL programs. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-table-planner-loader</artifactId>
@@ -101,11 +129,21 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- [Flink Built-in] -->
+    <!-- Flink Table Runtime: Provides the runtime implementation required by Flink Table API and SQL jobs. -->
     <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-table-runtime</artifactId>
       <version>${flink.version}</version>
       <scope>provided</scope>
+    </dependency>
+
+    <!-- [Flink Ecosystem] -->
+    <!-- Flink CDC MySQL Connector: Captures MySQL database changes and streams them into Flink for real-time processing. -->
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-connector-mysql-cdc</artifactId>
+      <version>${flink-cdc.version}</version>
     </dependency>
 
   </dependencies>
