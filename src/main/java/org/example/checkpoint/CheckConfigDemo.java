@@ -49,7 +49,7 @@ public class CheckConfigDemo {
         //2.指定检查点的存储位置
         checkpointConfig.setCheckpointStorage("hdfs://hadoop1:9000/checkpoint");
 //        checkpointConfig.setCheckpointStorage("file:///tmp/flink-checkpoints");
-        //3.checkpoint的超时时间：默认10分钟
+        //3.checkpoint的超时时间：默认1分钟
         checkpointConfig.setCheckpointTimeout(60 * 1000);
         //4.同时运行中的checkpoint的最大数量
         checkpointConfig.setMaxConcurrentCheckpoints(1);
